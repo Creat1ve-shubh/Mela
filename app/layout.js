@@ -1,3 +1,5 @@
+import Footer from "./components/Footer"
+import Navbar from "./components/Navbar"
 import "./globals.css"
 
 export const metadata = {
@@ -8,7 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
       <head>
+
         <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -16,7 +20,11 @@ export default function RootLayout({ children }) {
           crossOrigin=""
         />
       </head>
-      <body>{children}</body>
+
+      <body><Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

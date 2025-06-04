@@ -1,17 +1,15 @@
-"use client"
 
-import RoundaboutMap from "./components/Fair"
-import Footer from "./components/Footer"
-import compass from '../app/assets/compass.png';
-import Image from "next/image";
-import Header from "./components/Header";
+import Hero from "./components/Home/Hero";
+import Problems from "./components/Home/Problem";
+import Solution from "./components/Home/Solution";
 
 export default function Home() {
   return (
-    <main className="bg-black">
-      <Header />
-      <RoundaboutMap />
-      <Footer />
+    <main className="bg-black space-y-[10vh]">
+   
+      <Hero />
+     <Problems />
+      <Solution />
     </main>
   )
 }
