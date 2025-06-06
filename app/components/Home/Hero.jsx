@@ -1,5 +1,4 @@
 import React from 'react'
-import { Montserrat } from 'next/font/google';
 import { Playfair_Display } from 'next/font/google';
 import { Raleway } from 'next/font/google';
 const raleway = Raleway({
@@ -8,12 +7,7 @@ const raleway = Raleway({
   variable: '--font-raleway',
   display: 'swap'
 });
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: '300',
-  variable: '--font-montserrat',
-  display: 'swap'
-});
+
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -24,8 +18,12 @@ const playfair = Playfair_Display({
 
 const Hero = () => {
   return (
-    <div className="min-h-screen bg-gray-900 mx-[5vh] mt-[10vh] rounded-lg text-white flex items-end justify-start px-[10vh] pb-[10vh]">
-      <h1 className="space-x-4">
+    <div className="min-h-screen overflow-hidden relative mx-[5vh] mt-[10vh] rounded-lg text-white flex items-end justify-start px-[10vh] pb-[10vh]">
+            <div
+        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        style={{ backgroundImage: `url('/fair.png')` }} // Make sure image is in /public
+      />
+<h1 className="space-x-4 z-10">
         <span className={`${raleway.className} text-5xl font-light tracking-wide`}>
           Welcome to
         </span>

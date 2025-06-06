@@ -3,8 +3,8 @@ import Navbar from "./components/Navbar"
 import "./globals.css"
 
 export const metadata = {
-  title: "Fair Map",
-  description: "Interactive map of our fair using Leaflet",
+  title: "Mela",
+  description: "Interactive map of our fair",
 }
 
 export default function RootLayout({ children }) {

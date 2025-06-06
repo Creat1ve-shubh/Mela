@@ -8,7 +8,7 @@ export default function Home() {
     <main className="bg-black space-y-[10vh]">
    
       <Hero />
-     <Problems />
+      <Problems />
       <Solution />
     </main>
   )

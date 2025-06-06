@@ -11,31 +11,52 @@ const painpoints = [
   "Safety Concerns"
 ]
 
-// Painpoints component renders a horizontally scrolling list of pain points
+// Painpoints component renders two marquees: one left, one right
 const Painpoints = () => {
   return (
-    // Container with hidden overflow and black background
-    <div className="overflow-hidden whitespace-nowrap w-full  bg-black py-4">
-      {/* Marquee wrapper with animation */}
-      <div className="inline-block animate-marquee">
-        {/* Render each pain point */}
-        {painpoints.map((point, idx) => (
-          <span
-            key={idx}
-            className="text-white text-3xl mx-8 inline-block"
-          >
-            {point}
-          </span>
-        ))}
-        {/* Duplicate the list for seamless looping */}
-        {painpoints.map((point, idx) => (
-          <span
-            key={`dup-${idx}`}
-            className="text-white text-3xl mx-8 inline-block"
-          >
-            {point}
-          </span>
-        ))}
+    // Make parent a flex column to stack marquees vertically
+    <div className="overflow-hidden w-full bg-black py-4 flex flex-col gap-2">
+      {/* Left to right marquee */}
+      <div className="w-full">
+        <div className="inline-block animate-marquee">
+          {painpoints.map((point, idx) => (
+            <span
+              key={idx}
+              className="text-white text-3xl font-serif mx-8 inline-block"
+            >
+              {point}
+            </span>
+          ))}
+          {painpoints.map((point, idx) => (
+            <span
+              key={`dup-${idx}`}
+              className="text-white text-3xl font-serif mx-8 inline-block"
+            >
+              {point}
+            </span>
+          ))}
+        </div>
+      </div>
+      {/* Right to left marquee */}
+      <div className="w-full">
+        <div className="inline-block animate-marquee-reverse">
+          {painpoints.map((point, idx) => (
+            <span
+              key={`rev-${idx}`}
+              className="text-white text-3xl mx-8 inline-block"
+            >
+              {point}
+            </span>
+          ))}
+          {painpoints.map((point, idx) => (
+            <span
+              key={`rev-dup-${idx}`}
+              className="text-white text-3xl mx-8 inline-block"
+            >
+              {point}
+            </span>
+          ))}
+        </div>
       </div>
       {/* Inline CSS for marquee animation */}
       <style jsx>{`
@@ -44,9 +65,18 @@ const Painpoints = () => {
           white-space: nowrap;
           animation: marquee 18s linear infinite;
         }
+        .animate-marquee-reverse {
+          display: inline-block;
+          white-space: nowrap;
+          animation: marquee-reverse 18s linear infinite;
+        }
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-reverse {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
         }
       `}</style>
     </div>
