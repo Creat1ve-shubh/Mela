@@ -1,7 +1,17 @@
-"use client"
-import React from 'react'
-import Painpoints from '../Painpoints';
+'use client';
+
+import React from 'react';
 import { Raleway } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
+import { motion } from 'framer-motion';
+import HoverProblems from '../HoverProblems';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: '600',
+  variable: '--font-playfair',
+  display: 'swap'
+});
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -10,17 +20,37 @@ const raleway = Raleway({
   display: 'swap'
 });
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      ease: 'easeOut'
+    }
+  }
+};
+
 const Problems = () => {
   return (
-    <div className='px-[10vh] my-[10vh] py-[20vh]'>
-      <h1 className='text-white text-center text-5xl'><span className={raleway.className}>Navigating a fair is HARD!</span></h1>
-      <div className='mt-[10vh]'>
-     <Painpoints />
-     </div>
-     <p className='text-center text-4xl  text-white my-[10vh]'>
-      <span className={raleway.className}>How Stressful! surely theres a better way and we just have it</span> </p>
-    </div>
-  )
-}
+    <motion.div
+      className="my-[10vh] py-[20vh] rounded-t-xl bg-black relative overflow-hidden"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={containerVariants}
+    >
+      <motion.div
+        className="mt-[10vh]"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+      >
+        <HoverProblems />
+      </motion.div>
+    </motion.div>
+  );
+};
 
 export default Problems;

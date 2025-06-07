@@ -1,6 +1,6 @@
 import { HoverCard } from '@/components/ui/hover-card'
 import React from 'react'
-import HoverCardDemo from './Hover'
+import HoverCardDemo from './HoverNav'
 import { Gloock } from 'next/font/google'
 const gloock = Gloock({
     subsets: ['latin'],
@@ -17,10 +17,10 @@ const Navbar = () => {
             <span className={gloock.className}>
                 Mela
             </span></div>
-            <nav className='space-x-4'>
-                <a href="/" className='hover:text-gray-400'>Home</a>
-                <a href="/About" className='hover:text-gray-400'>About</a>
-                <a href="/Map" className='hover:text-gray-400'>Map</a>
+            <nav className='space-x-8'>
+                <a href="/" className='inline-block hover:text-gray-400 hover:scale-125 duration-300 transition-all'>Home</a>
+                <a href="/About" className='inline-block hover:text-gray-400 hover:scale-125 duration-300 transition-all'>About</a>
+                <a href="/Map" className='inline-block hover:text-gray-400 hover:scale-125 duration-300 transition-all'>Map</a>
             </nav>
 
         </div>

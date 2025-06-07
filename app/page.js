@@ -1,4 +1,5 @@
 
+import BentoDemo from "@/components/bento-demo";
 import Hero from "./components/Home/Hero";
 import Problems from "./components/Home/Problem";
 import Solution from "./components/Home/Solution";
